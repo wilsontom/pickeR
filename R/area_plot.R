@@ -1,10 +1,17 @@
-#' Area plot
+#' Peak area plot
 #'
+#' Plot the chromatogram with the peak area of all detected peaks, highlighted
 #'
+#' @param rt a numeric vector of retention time
+#' @param int a numeric vector of intensity
+#' @param peak_info a \code{data.frame} of peak info (see \code{\link{pick_peaks}})
 #'
+#' @author Tom Wilson \email{tpw2@@aber.ac.uk}
+#' @export
+#' @importFrom ggplot2 ggplot aes aes_string geom_line theme_classic xlab ylab theme element_text geom_polygon guides
 
 area_plot <- function(rt,int, peak_info)
-{
+  {
 
   peak_frame <- data.frame(rt, int)
 
@@ -14,7 +21,6 @@ area_plot <- function(rt,int, peak_info)
           axis.text.x = element_text(size = 10, face = "bold"),
           axis.title.y = element_text(size = 10, face = "bold"),
           axis.title.x = element_text(size = 10, face = "bold"))
-
 
   # peak ind check etc....
 
@@ -27,9 +33,7 @@ area_plot <- function(rt,int, peak_info)
 
   poly_df <- do.call("rbind", poly_ind)
 
-  area_plot <- chrom_plot + geom_polygon(data = poly_df, aes(x = rt, y = int, fill = factor(cls))) +
-                            geom_line(size = 0.5) + guides(fill = "none")
-
- plot(area_plot)
-
-}
+  area_plot <- chrom_plot + geom_polygon(data = poly_df, aes_string(x = 'rt', y = 'int', fill = factor('cls'))) +
+                                        geom_line(size = 0.5) + guides(fill = "none")
+  plot(area_plot)
+  }
