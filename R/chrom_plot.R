@@ -1,14 +1,17 @@
-#' Chrom Plot
+#' Chrom plot
 #'
+#' Plot the chromatogram. If a \code{peak_info} \code{data.frame} is supplied, then the apex's of all detected peaks are indicated
 #'
+#' @param rt a numeric vector of retention time
+#' @param int a numeric vector of intensity
+#' @param peak_info an optional  \code{data.frame} of peak info (see \code{\link{pick_peaks}}) (default is\code{NULL})
 #'
-#'
-
-
+#' @author Tom Wilson \email{tpw2@@aber.ac.uk}
+#' @export
+#' @importFrom ggplot2 geom_point
 
 chrom_plot <- function(rt,int, peak_info = NULL)
-  {
-
+    {
   peak_frame <- data.frame(rt, int)
 
   chrom_plot <- ggplot(data = peak_frame, aes(x = rt, y = int)) + geom_line(size = 0.45) +
