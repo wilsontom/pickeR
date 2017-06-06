@@ -1,15 +1,17 @@
 #' Peak Detection
 #'
+#' Detect peals using \code{pracma::findPeaks}
 #'
+#' @param rt a numeric vector of retention time
+#' @param int a numeric vector of intensity
+#' @return a \code{peak_info} \code{data.frame}
 #'
-#'
-#'
-#'
+#' @keywords internal
+#' @author Tom Wilson \email{tpw2@@aber.ac.uk}
 
 
 peak_detection <- function(rt, int)
   {
-
   # rt int length checks
 
   noise <- estimate_noise(int)
@@ -22,12 +24,9 @@ peak_detection <- function(rt, int)
   peak_limits[,"apex"] <- peak_indicies[,2]
   peak_limits[,"right"] <- peak_indicies[,4]
 
-
   peak_info <- get_peak_info(rt = rt, int = int, peak_limits)
 
-
   return(peak_info)
-
 }
 
 
