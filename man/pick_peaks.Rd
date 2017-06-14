@@ -25,6 +25,7 @@ a \code{peak_info} \code{data.frame}
 Pick peaks
 }
 \examples{
+    \dontrun{
 
 load(system.file("extdata/chrom_b.rda", package = "pickeR"))
 peaks_b <- pick_peaks(chrom_b$rt, chrom_b$int, target_rt = NULL)
@@ -45,6 +46,8 @@ print(peaks_b)
 
   peak_id   rt rt_left rt_right     int     area peak_width left apex right
 1       1 4.82    4.64     5.12 1816326 162374.6       21.4  234  243   258
+
+}
 }
 \author{
 Tom Wilson \email{tpw2@aber.ac.uk}

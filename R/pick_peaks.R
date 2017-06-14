@@ -12,6 +12,7 @@
 #' @author Tom Wilson \email{tpw2@@aber.ac.uk}
 #' @export
 #' @examples
+#'     \dontrun{
 #'
 #' load(system.file("extdata/chrom_b.rda", package = "pickeR"))
 #' peaks_b <- pick_peaks(chrom_b$rt, chrom_b$int, target_rt = NULL)
@@ -32,6 +33,8 @@
 #'
 #'   peak_id   rt rt_left rt_right     int     area peak_width left apex right
 #' 1       1 4.82    4.64     5.12 1816326 162374.6       21.4  234  243   258
+#'
+#' }
 
 pick_peaks <- function(rt,int, target_rt, rt_window = 20)
   {
