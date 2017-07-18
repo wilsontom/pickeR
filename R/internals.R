@@ -60,8 +60,8 @@ estimate_noise <- function(x)
   lmax <- local_max(x)
   lmin <- local_min(x[-lmax])
 
+  #return(as.numeric(median(x[lmin])))
   return(as.numeric(mean(x[lmin])))
-
   }
 
 
