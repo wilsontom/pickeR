@@ -11,7 +11,7 @@ area_plot(rt, int, peak_info)
 
 \item{int}{a numeric vector of intensity}
 
-\item{peak_info}{a \code{data.frame} of peak info (see \code{\link{pick_peaks}})}
+\item{peak_info}{a \code{data.frame} of peak info (see \code{\link{find_peaks}})}
 }
 \description{
 Plot the chromatogram with the peak area of all detected peaks, highlighted
