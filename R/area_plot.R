@@ -4,7 +4,7 @@
 #'
 #' @param rt a numeric vector of retention time
 #' @param int a numeric vector of intensity
-#' @param peak_info a \code{data.frame} of peak info (see \code{\link{pick_peaks}})
+#' @param peak_info a \code{data.frame} of peak info (see \code{\link{find_peaks}})
 #'
 #' @author Tom Wilson \email{tpw2@@aber.ac.uk}
 #' @export
