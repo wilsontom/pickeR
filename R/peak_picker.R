@@ -37,9 +37,9 @@
 #' }
 
 
-peak_picker <- function(rt, int, target_rt, rt_window = 20)
+peak_picker <- function(rt, int, target_rt, rt_window)
 {
-  all_peaks <- find_peaks(rt = rt, int = int)
+  all_peaks <- get_peaks(rt = rt, int = int)
 
   if (is.null(target_rt)) {
     return(all_peaks)
@@ -74,7 +74,7 @@ peak_picker <- function(rt, int, target_rt, rt_window = 20)
     which(new_info[, "rt"] > rt_range[1] &
             new_info[, "rt"] < rt_range[2])
 
-  peak_info <- new_info[target_idx, ]
+  peak_info <- new_info[target_idx,]
 
   return(peak_info)
 
