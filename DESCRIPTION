@@ -4,9 +4,10 @@ Title: Peak picking for low resolution liquid chromatography data
 Version: 0.0.99
 Author: Tom Wilson <tpw2@aber.ac.uk>
 Maintainer: Tom Wilson <tpw2@aber.ac.uk>
-Description: Simple, (almost) parameter free, peak picking for chromatogram data.
+Description: Simple and (almost) parameter free, peak picking for chromatogram data.
 Depends: ggplot2
-Imports: pracma
+Imports: pracma,
+         purrr
 Suggests: testthat
 License: GPL (>= 3)
 Encoding: UTF-8
