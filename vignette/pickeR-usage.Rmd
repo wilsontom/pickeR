@@ -1,0 +1,31 @@
+---
+title: "pickeR Usage"
+author: "Tom Wilson"
+output:
+  html_document:
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(magrittr)
+```
+
+## Installation
+
+To install using `devtools`;
+
+```R
+devtools::install_github("wilsontom/pickeR")
+```
+or from source;
+
+```sh
+git clone https://github.com/wilsontom/pickeR
+R CMD build pickeR
+R CMD INSTALL pickeR_0.1.0.tar.gz
+```
+
+
+
+
