@@ -4,7 +4,7 @@
 \alias{peak_picker}
 \title{Peak Picker}
 \usage{
-peak_picker(rt, int, target_rt, rt_window = 20)
+peak_picker(rt, int, target_rt, rt_window)
 }
 \arguments{
 \item{rt}{a numeric vector of retention time}
