@@ -78,7 +78,7 @@ smooth_peak <- function(rt,int, ford)
 
   noise <- estimate_noise(int)
 
-  min_int <- which(unlist(purrr:::map(filtered_int, ~{abs(min(.)) > noise})) == FALSE)
+  min_int <- which(unlist(purrr::map(filtered_int, ~{abs(min(.)) > noise})) == FALSE)
 
   selected_f <- f[max(min_int)]
 
@@ -108,7 +108,7 @@ inegrate_peak <- function(rt,int,range)
 #' @param rt a numeric vector of retention time
 #' @param int a numeric vector of intensity#' @param idx
 #' @param idx a numeric vector of peak id's to merge.
-#' @param peak_info a \code{data.frame} of peak info (see \code{\link{find_peaks}})
+#' @param peak_info a \code{data.frame} of peak info (see \code{\link{get_peak_info}})
 #' @return an updated \code{peak_info} \code{data.frame}
 #'
 #' @keywords internal
