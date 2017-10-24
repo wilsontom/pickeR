@@ -3,7 +3,7 @@
 #' Create a \code{peak_info} \code{data.frame}
 #'
 #' @param rt a numeric vector of retention time
-#' @param int a numeric vector of intensity#' @param idx
+#' @param int a numeric vector of intensity
 #' @param peak_limits a \code{data.frame} indicating the left, right and apex indices for all detected peaks
 #' @return a \code{peak_info} \code{data.frame}
 #'
