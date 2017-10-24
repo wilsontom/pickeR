@@ -1,21 +1,34 @@
-context("pickeR-internals")
+context('pickeR-internals')
 
-test_that("internals", {
+test_that('internals', {
 
-  load(system.file("extdata/chrom_a.rda", package = "pickeR"))
+  rt <- chrom_181[[2]]$rt
+  int <- chrom_181[[2]]$int
 
+  expect_true(is.numeric(pickeR:::estimate_noise(int)))
 
-  expect_true(is.numeric(pickeR:::estimate_noise(chrom_a[,"int"])))
+  expect_true(is.vector(pickeR:::local_max(int)))
+  expect_true(is.vector(pickeR:::local_min(int)))
 
-  expect_true(is.vector(pickeR:::local_max(chrom_a[,"int"])))
-  expect_true(is.vector(pickeR:::local_min(chrom_a[,"int"])))
-
-  peak_info <- find_peaks(chrom_a[,"rt"], chrom_a[,"int"])
-  peak_merged <- pickeR:::merge_peaks(chrom_a[,"rt"], chrom_a[,"int"], idx = c(1:5), peak_info)
+  peak_info <- get_peaks(rt,int)
+  peak_merged <- pickeR:::merge_peaks(rt,int, idx = c(1:5), peak_info)
 
   expect_true(is.data.frame(peak_merged))
   expect_true(nrow(peak_merged) < nrow(peak_info))
-  expect_error(pickeR:::merge_peaks(chrom_a[,"rt"], chrom_a[,"int"], idx = c(15:20), peak_info))
+  expect_error(pickeR:::merge_peaks(rt,int, idx = c(15:20), peak_info))
+
+
+  expect_true(is.numeric(pickeR:::smooth_peak(rt,int, ford = 2)))
+  expect_true(is.vector(pickeR:::smooth_peak(rt,int, ford = 2)))
+
+  intsm <- pickeR:::smooth_peak(rt, int, ford = 2)
+
+  expect_true(all(int != intsm))
+
+  expect_true(length(int) == length(intsm))
 
   }
 )
+
+
+
