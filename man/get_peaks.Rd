@@ -12,7 +12,7 @@ get_peaks(rt, int)
 \item{int}{a numeric vector of intensity}
 }
 \value{
-a \code{peak_info} \code{data.frame}. See also \link{\code{get_peak_info}}
+a \code{peak_info} \code{data.frame}. See also \code{\link{get_peak_info}}
 }
 \description{
 Detect peals using \code{pracma::findPeaks}

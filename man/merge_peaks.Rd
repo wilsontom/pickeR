@@ -13,7 +13,7 @@ merge_peaks(rt, int, idx, peak_info)
 
 \item{idx}{a numeric vector of peak id's to merge.}
 
-\item{peak_info}{a \code{data.frame} of peak info (see \code{\link{find_peaks}})}
+\item{peak_info}{a \code{data.frame} of peak info (see \code{\link{get_peak_info}})}
 }
 \value{
 an updated \code{peak_info} \code{data.frame}

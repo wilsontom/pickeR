@@ -9,7 +9,7 @@ get_peak_info(rt, int, peak_limits)
 \arguments{
 \item{rt}{a numeric vector of retention time}
 
-\item{int}{a numeric vector of intensity#' @param idx}
+\item{int}{a numeric vector of intensity}
 
 \item{peak_limits}{a \code{data.frame} indicating the left, right and apex indices for all detected peaks}
 }

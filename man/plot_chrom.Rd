@@ -11,7 +11,7 @@ plot_chrom(rt, int, peak_info)
 
 \item{int}{a numeric vector of intensity}
 
-\item{peak_info}{an optional  \code{data.frame} of peak info (see \code{\link{find_peaks}}) (default is\code{NULL})}
+\item{peak_info}{an optional  \code{data.frame} of peak info (see \code{\link{get_peak_info}}) (default is\code{NULL})}
 }
 \description{
 If a \code{peak_info} \code{data.frame} is supplied, then the apex's of all detected peaks are indicated
