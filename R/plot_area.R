@@ -42,4 +42,6 @@ plot_area <- function(rt, int, peak_info)
     chrom_plot + geom_polygon(data = poly_df, aes_string(x = 'rt', y = 'int', fill = 'cls')) +
     geom_line(size = 0.5) + guides(fill = "none")
   plot(area_plot)
+
+  return(invisible(NULL))
 }
