@@ -5,7 +5,8 @@ Version: 0.0.99
 Author: Tom Wilson <tpw2@aber.ac.uk>
 Maintainer: Tom Wilson <tpw2@aber.ac.uk>
 Description: Simple and (almost) parameter free, peak picking for chromatogram data.
-Depends: ggplot2
+Depends: R (>= 3.0),
+         ggplot2
 Imports: pracma,
          purrr
 Suggests: testthat
