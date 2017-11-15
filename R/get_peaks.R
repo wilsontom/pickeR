@@ -16,6 +16,11 @@ get_peaks <- function(rt, int)
 
   peak_indicies <- pracma::findpeaks(int_sm, threshold = noise)
 
+  if (is.null(peak_indicies)) {
+    peak_indicies <- pracma::findpeaks(int_sm, threshold = 0)
+  }
+
+
   peak_limits <-
     data.frame(matrix(nrow = nrow(peak_indicies), ncol = 3))
   names(peak_limits) <- c("left", "apex", "right")
