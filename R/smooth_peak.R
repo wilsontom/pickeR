@@ -5,7 +5,7 @@
 #' @param rt a numeric vector of retention time
 #' @param int a numeric vector of intensity
 #' @param ford a numeric value for the filter order (2 = quadratic filter, 4 = quartic)
-#' @returna a numeric vector of smoothed intensity
+#' @return a numeric vector of smoothed intensity
 #'
 #' @export
 
