@@ -5,6 +5,7 @@
 #' @param rt a numeric vector of retention time
 #' @param int a numeric vector of intensity
 #' @param peak_info a \code{data.frame} of peak info (see \code{\link{get_peaks}})
+#' @return a \code{ggplot} object
 #'
 #' @author Tom Wilson \email{tpw2@@aber.ac.uk}
 #' @export
@@ -41,7 +42,6 @@ plot_area <- function(rt, int, peak_info)
   area_plot <-
     chrom_plot + geom_polygon(data = poly_df, aes_string(x = 'rt', y = 'int', fill = 'cls')) +
     geom_line(size = 0.5) + guides(fill = "none")
-  plot(area_plot)
 
-  return(invisible(NULL))
+  return(area_plot)
 }

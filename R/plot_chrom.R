@@ -5,7 +5,7 @@
 #' @param rt a numeric vector of retention time
 #' @param int a numeric vector of intensity
 #' @param peak_info an optional  \code{data.frame} of peak info (see \code{\link{get_peak_info}}) (default is\code{NULL})
-#' @return NULL
+#' @return a \code{ggplot} object
 #'
 #' @export
 #' @importFrom ggplot2 geom_point
@@ -25,14 +25,11 @@ plot_chrom <- function(rt, int, peak_info)
       axis.title.x = element_text(size = 10, face = "bold")
     )
 
-  if (is.null(peak_info)) {
-    plot(chrom_plot)
-  }
 
   if (!is.null(peak_info)) {
-    plotc <-
+    chrom_plot <-
       chrom_plot + geom_point(data = peak_info, aes(x = rt, y = int), colour = "red")
-    plot(plotc)
+
   }
-  return(invisible(NULL))
+  return(chrom_plot)
 }
