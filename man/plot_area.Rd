@@ -13,6 +13,9 @@ plot_area(rt, int, peak_info)
 
 \item{peak_info}{a \code{data.frame} of peak info (see \code{\link{get_peaks}})}
 }
+\value{
+a \code{ggplot} object
+}
 \description{
 Plot the chromatogram with the peak area of all detected peaks highlighted
 }

@@ -13,6 +13,9 @@ plot_chrom(rt, int, peak_info)
 
 \item{peak_info}{an optional  \code{data.frame} of peak info (see \code{\link{get_peak_info}}) (default is\code{NULL})}
 }
+\value{
+a \code{ggplot} object
+}
 \description{
 If a \code{peak_info} \code{data.frame} is supplied, then the apex's of all detected peaks are indicated
 }
