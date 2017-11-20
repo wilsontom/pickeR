@@ -8,7 +8,7 @@
 #' @return a \code{ggplot} object
 #'
 #' @export
-#' @importFrom ggplot2 geom_point
+#' @importFrom ggplot2 geom_point labs
 #' @importFrom graphics plot
 
 plot_chrom <- function(rt, int, peak_info)
@@ -17,7 +17,7 @@ plot_chrom <- function(rt, int, peak_info)
 
   chrom_plot <-
     ggplot(data = peak_frame, aes(x = rt, y = int)) + geom_line(size = 0.45) +
-    theme_classic() + xlab("Rt (mins)") + ylab("Intensity") +
+    theme_classic() + labs(x = 'Rt (mins)', y = 'Intensity', title = '') +
     theme(
       axis.text.y = element_text(size = 10, face = "bold"),
       axis.text.x = element_text(size = 10, face = "bold"),
