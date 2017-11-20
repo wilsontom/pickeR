@@ -8,7 +8,9 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(pickeR)
 library(magrittr)
+library(kableExtra)
 ```
 
 ## Installation
@@ -24,6 +26,87 @@ or from source;
 git clone https://github.com/wilsontom/pickeR
 R CMD build pickeR
 R CMD INSTALL pickeR_0.1.0.tar.gz
+```
+
+
+## Introduction
+
+
+## Peak Smoothing
+
+Peak smoothing performed using a Savitzky-Golay filter. The filter length is automatically determined for each chromatogram by calculting the smoothed intensity for a series of possible filter lengths. The selected filter length is determined by the minimum smoothed intensity being greater than the estimated noise of the chromatogram. This is to avoid the introdcution of too many negative intensity values. 
+
+```{r, echo = FALSE}
+rt <- chrom_181[[2]]$rt
+int <- chrom_181[[2]]$int
+
+smooth_int_opt <- smooth_peak(rt,int, ford = 4)
+
+original <- plot_chrom(rt,int, peak_info = NULL)
+original$labels$title <- 'Original Peak'
+
+smoothed <- plot_chrom(rt,smooth_int_opt, peak_info = NULL)
+smoothed$labels$title <- 'Smoothed Peak'
+plot(original)
+plot(smoothed)
+
+```
+
+## Identifying Chromatographic Features
+
+Chromatographic features are then identified using local maximum searching. The function `get_peaks` extracts all potential features from the chromatogram
+
+```{r, echo = TRUE}
+peaks_found <- get_peaks(rt,smooth_int_opt)
+plot_chrom(rt, smooth_int_opt, peak_info = peaks_found)
+```
+
+
+```{r, echo = FALSE}
+peaks_found %>%
+  knitr::kable("html") %>%
+  kable_styling(
+  bootstrap_options = c("striped", "hover"),
+  full_width = TRUE,
+  position = 'center'
+  ) %>%
+  row_spec(4, bold = TRUE, background = "#ff6a6a")
+```
+
+From the table of results it is clear that the `get_peaks` function has successfully identified the apex of the peak (highlighted); aswell as a number of smaller chromatrographic features on either side. 
+
+As `pickeR` is primarily desgined to identify chromatographic features in SRM-MS data; then we can also use the `get_chrom_max` function to return only the retention time (Rt) of the major feature. 
+
+```{r, echo = TRUE}
+get_chrom_max(rt, smooth_int_opt)
+```
+
+
+## Peak Picking
+
+The `peak_picker` function is a wrapper which combines peak identification and merging. The methods implemented in `get_peaks` are not sophisticated enough to determine if neighbouring features (ie, peak shoulder) belong to the major feature. The `peak_picker` function identfies these minor features and combines them with the major feature identified. 
+
+By suppling a target retention time and window size (seconds) the extent of this searching and mering can be controlled. 
+
+```{r, echo = TRUE}
+target_rt <- get_chrom_max(rt, smooth_int_opt)
+
+peaks <- peak_picker(rt, smooth_int_opt, target_rt, rt_window = 20)
+```
+
+```{r, echo = FALSE}
+peaks %>% knitr::kable("html") %>%
+  kable_styling(
+  bootstrap_options = c("striped", "hover"),
+  full_width = TRUE,
+  position = 'center'
+  )
+```
+
+
+The identified peak can be visualised using the `plot_area` function;
+```{r, echo = TRUE}
+plot_area(rt, smooth_int_opt, peaks)
 ```
 
 
