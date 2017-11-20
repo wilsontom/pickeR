@@ -10,9 +10,9 @@ test_that('package', {
   expect_true(is.data.frame(get_peaks(rt,int)))
   peak_info <- get_peaks(rt,int)
 
-  expect_true(is.null(plot_chrom(rt,int, peak_info)))
+  expect_true(!is.null(plot_chrom(rt,int, peak_info)))
 
-  expect_true(is.null(plot_area(rt,int,peak_info)))
+  expect_true(!is.null(plot_area(rt,int,peak_info)))
   expect_error(plot_area(rt,int))
 
   expect_true(is.numeric(get_chrom_max(rt,int)))

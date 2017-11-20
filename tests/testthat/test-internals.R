@@ -18,14 +18,6 @@ test_that('internals', {
   expect_error(pickeR:::merge_peaks(rt,int, idx = c(15:20), peak_info))
 
 
-  expect_true(is.numeric(pickeR:::smooth_peak(rt,int, ford = 2)))
-  expect_true(is.vector(pickeR:::smooth_peak(rt,int, ford = 2)))
-
-  intsm <- pickeR:::smooth_peak(rt, int, ford = 2)
-
-  expect_true(all(int != intsm))
-
-  expect_true(length(int) == length(intsm))
 
   }
 )
