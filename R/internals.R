@@ -62,33 +62,12 @@ estimate_noise <- function(x)
   return(as.numeric(mean(x[lmin])))
 }
 
-
-
-#' Smooth Peak
+#' Integrate Peak
+#'
+#'
 #' @keywords internal
-smooth_peak <- function(rt,int, ford)
-{
 
-  f <- seq(from = 3, to = 51, by = 2)
 
-  filtered_int <- NULL
-  for(i in seq_along(f)){
-    filtered_int[[i]] <- pracma::savgol(int, f[i], forder = ford)
-  }
-
-  noise <- estimate_noise(int)
-
-  min_int <- which(unlist(purrr::map(filtered_int, ~{abs(min(.)) > noise})) == FALSE)
-
-  selected_f <- f[max(min_int)]
-
-  smoothed_int <- pracma::savgol(int, fl = selected_f, forder = ford, dorder = 0)
-
-  smoothed_int[smoothed_int < 0] <- 0
-
-    return(smoothed_int)
-
-}
 
 
 inegrate_peak <- function(rt,int,range)

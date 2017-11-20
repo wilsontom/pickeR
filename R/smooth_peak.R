@@ -11,7 +11,7 @@
 
 smooth_peak <- function(rt, int, ford)
 {
-  f <- seq(from = 3, to = 51, by = 2)
+  f <- seq(from = 3, to = 101, by = 2)
 
   filtered_int <- NULL
   for (i in seq_along(f)) {
@@ -26,7 +26,7 @@ smooth_peak <- function(rt, int, ford)
     })) == FALSE)
 
   selected_f <- f[max(min_int)]
-
+  selected_f <- 11
   smoothed_int <-
     pracma::savgol(int,
                    fl = selected_f,
