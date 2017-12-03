@@ -4,7 +4,7 @@
 > __simple & (almost) parameter free peak-picking for liquid chromatography data__
 
 ```R
-devtools::nstall_github('wilsontom/pickeR',build_vignettes = TRUE)
+devtools::install_github('wilsontom/pickeR',build_vignettes = TRUE)
 ```
 
 ```R
