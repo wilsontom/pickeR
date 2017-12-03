@@ -9,7 +9,8 @@ Depends: R (>= 3.0),
          ggplot2
 Imports: pracma,
          purrr
-Suggests: testthat
+Suggests: testthat,
+    covr
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true

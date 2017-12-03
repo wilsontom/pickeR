@@ -17,8 +17,6 @@ test_that('internals', {
   expect_true(nrow(peak_merged) < nrow(peak_info))
   expect_error(pickeR:::merge_peaks(rt,int, idx = c(15:20), peak_info))
 
-
-
   }
 )
 
